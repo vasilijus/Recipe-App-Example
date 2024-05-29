@@ -40,13 +40,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +52,32 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView.builder(
           itemCount: Recipe.samples.length,
           itemBuilder: (BuildContext context, int index) {
-            return Text(Recipe.samples[index].label);
+            // return Text(Recipe.samples[index].label);
+            return buildRecipeCard(Recipe.samples[index]);
           },
         ),
       ),
     );
   }
+
+
+  Widget buildRecipeCard(Recipe recipe) {
+    return Card(
+      elevation: 2.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        
+        child: Column(
+          children: <Widget>[
+            Image(image: AssetImage(recipe.imageUrl)),
+            Text(recipe.label),
+          ],
+        ),
+      ),
+    );
+  }
+
 }
