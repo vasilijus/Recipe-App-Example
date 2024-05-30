@@ -21,7 +21,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
 	Widget build(BuildContext context) {
 		return Scaffold(
 			appBar: AppBar(
-				title: Text(widget.recipe.label),
+				title: Text(widget.recipe.id.toString()+' - '+widget.recipe.label),
 			),
 			body: SafeArea(
 				child: Column(
